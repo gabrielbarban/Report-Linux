@@ -1,20 +1,18 @@
 #!/bin/bash
 
-cd /tmp
 #Versao 1.0 - Dezembro/2018 (criacao do script e de suas funcionalidades) - Gabriel Barban Rocha#
 #Versao 1.1 - Dezembro/2018 (Melhorias: script completo rodando a cada 10 dias; dados sendo armazenados tbm em um txt dentro do servidor) - Gabriel Barban Rocha#
 #Versao 1.2 - Dezembro/2018 (Melhorias: ultimos acessos no servidor, melhoria no layout das tabelas, rodape da iteris) - Gabriel Barban Rocha#
 #Versao 2.0 - Dezembro/2018 (Melhorias: Pegando todos os dados do usuario e deixando o script utilizavel em qualquer servidor e permitindo seu uso por usuarios que nao entendam shell script)
 #Informe abaixo as informacoes antes de gerar o script
-TAMANHO_APLICACAO=''
-TAMANHO_BD=''
 
-
+cd /tmp
 echo "Informe o nome do servidor: "
 read NOME_SERVIDOR
 echo "Informe o nome da Instituicao em que trabalha: "
 read EMPRESA
-
+echo "Informe o email para onde o relatorio deve ser enviado (separando por virgula se for mais de um): "
+read emails
 
 echo "### RELATORIO COMPLETO SERVIDOR ###" >> report.txt
 echo "Desenvolvido por: Gabriel Barban Rocha - barbangabriel@gmail.com" >> report.txt
@@ -82,8 +80,6 @@ read opcao2
         *) echo invalid option;;
     esac
 
-
-
 echo "- Memoria RAM utilizada" >> report.txt
 free -m -t >> report.txt
 echo " " >> report.txt
@@ -101,9 +97,32 @@ echo " " >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
 
-echo "Iteris Consultoria e Software LTDA" >> report.txt
+echo $EMPRESA >> report.txt
 echo "### FIM DO RELATORIO ###" >> report.txt
 echo " " >> report.txt
 
-#cat /tmp/report.txt | mail -s "Relatorio completo Servidor Recovery - $(/bin/date +%d-%m-%Y)" gabriel.rocha@iteris.com.br,sergio.gomes@iteris.com.br,adenilson.santos@iteris.com.br,gabriel.chantre@iteris.com.br,leonard.albert@iteris.com.br,catarina.bernardino@iteris.com.br,marcella.sotto@iteris.com.br,guilherme.moura@iteris.com.br
-#cp /tmp/report.txt /home/ubuntu/reports/report_"$(/bin/date +%d-%m-%Y)".txt
+cat /tmp/report.txt | mail -s "Relatorio completo Servidor $NOME_SERVIDOR - $(/bin/date +%d-%m-%Y)" $emails
+rm /tmp/report.txt
+
+echo " "
+echo " "
+echo "
+#################################
+##                             ##
+## ______                      ##
+## |        |    |\        /|  ##
+## |        |    | \      / |  ##
+## |        |    |  \    /  |  ##
+## |-----   |    |   \  /   |  ##
+## |        |    |    \/    |  ##
+## |        |    |          |  ##
+##                             ##
+##                             ##
+#################################
+     "
+echo " "
+echo " "
+echo " "
+echo " -------------------------------------------------- "
+echo "Desenvolvido por: Gabriel Barban Rocha - barbangabriel@gmail.com"
+echo " "
