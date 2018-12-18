@@ -3,7 +3,7 @@ REPORT LINUX 2.0
 
 ### Codigo feito em shell script para gerar um report com informacoes sobre o servidor. ###
 ### Importante: alem de algumas dependencias que eventualmente deverao ser instaladas no Ubuntu, para envio de emails e obrigatoria a ###
-### instalacao do postfix e de sua configuracao basica. ###
+### instalacao do postfix  e mailutils. ###
 ### Alem disso o banco de dados compativel com o relatorio e o MySQL ###
 
 ### -------------------------- ###
