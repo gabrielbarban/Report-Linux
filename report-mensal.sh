@@ -7,12 +7,9 @@
 
 #Informe abaixo as informacoes antes de gerar o script
 cd /tmp
-echo "Informe o nome do servidor: "
-read NOME_SERVIDOR
-echo "Informe o nome da Instituicao em que trabalha: "
-read EMPRESA
-echo "Informe o email para onde o relatorio deve ser enviado (separando por virgula se for mais de um): "
-read emails
+read -p "Informe o nome do servidor: " NOME_SERVIDOR
+read -p "Informe o nome da Instituicao em que trabalha: " EMPRESA
+read -p "Informe o email para onde o relatorio deve ser enviado (separando por virgula se for mais de um): " emails
 
 echo "### RELATORIO COMPLETO SERVIDOR ###" >> report.txt
 echo "Desenvolvido por: Gabriel Barban Rocha - barbangabriel@gmail.com" >> report.txt
