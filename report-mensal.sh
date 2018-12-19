@@ -5,6 +5,26 @@
 #Versao 1.2 - Dezembro/2018 (Melhorias: ultimos acessos no servidor, melhoria no layout das tabelas, rodape da iteris) - Gabriel Barban Rocha#
 #Versao 2.0 - Dezembro/2018 (Melhorias: Pegando todos os dados do usuario e deixando o script utilizavel em qualquer servidor e permitindo seu uso por usuarios que nao entendam shell script)
 
+echo "Report Linux 2.0"
+echo " "
+echo " "
+echo "(Caso escolha SIM, lembre-se que deve estar como SUDO)"
+read -p "Deseja verificar as dependencias? (1-Sim/2-Não): " opcaod
+
+case $opcaod in
+        "1")
+            echo "Instalando..."
+	    apt-get update
+            apt-get -y install mailutils
+            break
+            ;;
+        "2")
+	    echo "Sem verificacao..."
+            break
+            ;;
+        *) echo invalid option;;
+esac
+
 #Informe abaixo as informacoes antes de gerar o script
 cd /tmp
 read -p "Informe o nome do servidor: " NOME_SERVIDOR
