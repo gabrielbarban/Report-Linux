@@ -2,10 +2,14 @@
 
 #Versao 1.0 - Dezembro/2018 (criacao do script e de suas funcionalidades) - Gabriel Barban Rocha#
 #Versao 1.1 - Dezembro/2018 (Melhorias: script completo rodando a cada 10 dias; dados sendo armazenados tbm em um txt dentro do servidor) - Gabriel Barban Rocha#
-#Versao 1.2 - Dezembro/2018 (Melhorias: ultimos acessos no servidor, melhoria no layout das tabelas, rodape da iteris) - Gabriel Barban Rocha#
-#Versao 2.0 - Dezembro/2018 (Melhorias: Pegando todos os dados do usuario e deixando o script utilizavel em qualquer servidor e permitindo seu uso por usuarios que nao entendam shell script)
+#Versao 1.2 - Dezembro/2018 (Melhorias: ultimos acessos no servidor, melhoria no layout das tabelas, rodape) - Gabriel Barban Rocha#
+#Versao 2.0 - Dezembro/2018 (Melhorias: Pegando todos os dados do usuario e deixando o script utilizavel em qualquer servidor e permitindo seu uso por usuarios que nao entendam shell script)  - Gabriel Barban Rocha#
 
 echo "Report Linux 2.0"
+echo " "
+echo " "
+read -p "Qual seu nome? " usuario
+echo " "
 echo " "
 echo " "
 echo "(Caso escolha SIM, lembre-se que deve estar como SUDO)"
@@ -33,7 +37,7 @@ read -p "Informe o email para onde o relatorio deve ser enviado (separando por v
 
 echo "### RELATORIO COMPLETO SERVIDOR ###" >> report.txt
 echo "Desenvolvido por: Gabriel Barban Rocha - barbangabriel@gmail.com" >> report.txt
-echo "Extraído em: $(/bin/date +%d-%m-%Y) $(/bin/date +%H-%M-%S)" >> report.txt
+echo "Extraído por: $usuario, em $(/bin/date +%d-%m-%Y) $(/bin/date +%H-%M-%S)" >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
@@ -124,18 +128,15 @@ rm /tmp/report.txt
 echo " "
 echo " "
 echo "
-###############################
-##                           ##
-## ______                    ##
-## |        |  |\        /|  ##
-## |        |  | \      / |  ##
-## |        |  |  \    /  |  ##
-## |-----   |  |   \  /   |  ##
-## |        |  |    \/    |  ##
-## |        |  |          |  ##
-##                           ##
-##                           ##
-###############################
+############################
+## ______                 ##
+## |        |  |\      /| ##
+## |        |  | \    / | ##
+## |-----   |  |  \  /  | ##
+## |        |  |   \/   | ##
+## |        |  |        | ##
+##                        ##
+############################
      "
 echo " "
 echo " "
