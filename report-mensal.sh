@@ -72,12 +72,10 @@ ifconfig >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
 
-echo "Relatorio deve informar o tamanho da aplicacao? (1-sim/2-nao) "
-read opcao1
+read -p "Relatorio deve informar o tamanho da aplicacao? (1-sim/2-nao): " opcao1
     case $opcao1 in
         "1")
-            echo "Informe o diretorio completo da aplicacao (exemplo: /var/www/meuapp): "
-            read DIRETORIO_APLICACAO
+            read -p "Informe o diretorio completo da aplicacao (exemplo: /var/www/meuapp): " DIRETORIO_APLICACAO
             echo "- Tamanho da aplicacao" >> report.txt
 	    du -sh $DIRETORIO_APLICACAO >> report.txt
             echo " " >> report.txt
@@ -90,18 +88,13 @@ read opcao1
         *) echo invalid option;;
     esac
 
-echo "Relatorio deve informar o tamanho da base de dados? (1-sim/2-nao) "
-read opcao2
+read -p "Relatorio deve informar o tamanho da base de dados? (1-sim/2-nao) " opcao2
     case $opcao2 in
         "1")
-            echo "Informe o host da base de dados (exemplo: localhost): "
-            read host;
-            echo "Informe o nome da base de dados: "
-            read bd;
-            echo "Informe o usuario do banco de dados (exemplo: root): "
-            read usuario;
-            echo "Informe a senha do banco de dados: "
-            read senha;
+            read -p "Informe o host da base de dados (exemplo: localhost): " host
+            read -p "Informe o nome da base de dados: " bd
+            read -p "Informe o usuario do banco de dados (exemplo: root): " usuario
+            read -p "Informe a senha do banco de dados: " senha
             mysqldump -u$usuario -p$senha -h$host $bd > /tmp/dump_$bd.sql
             echo "- Tamanho da base de dados" >> report.txt
             du -sh /tmp/dump_$bd.sql >> report.txt
