@@ -21,6 +21,17 @@ case $opcaod in
             echo "Instalando..."
 	    apt-get update
             apt-get -y install mailutils
+
+	    echo "Verificando se o arquivo /var/log/wtmp existe..."
+	    FILE=/var/log/wtmp
+	    if [ -e $FILE ]
+            then
+		echo "Ok, existe!"
+	    else
+		touch /var/log/wtmp
+		chmod 777 /var/log/wtmp
+		echo "Arquivo criado!"
+	    fi
             break
             ;;
         "2")
@@ -29,6 +40,7 @@ case $opcaod in
             ;;
         *) echo invalid option;;
 esac
+
 
 #Informe abaixo as informacoes antes de gerar o script
 cd /tmp
