@@ -44,6 +44,7 @@ esac
 
 #Informe abaixo as informacoes antes de gerar o script
 cd /tmp
+echo " "
 read -p "Informe o nome do servidor: " NOME_SERVIDOR
 read -p "Informe o nome da Instituicao em que trabalha: " EMPRESA
 read -p "Informe o email para onde o relatorio deve ser enviado (separando por virgula se for mais de um): " emails
