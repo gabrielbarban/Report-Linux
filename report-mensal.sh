@@ -5,8 +5,9 @@
 #Versao 1.2 - Dezembro/2018 (Melhorias: ultimos acessos no servidor, melhoria no layout das tabelas, rodape) - Gabriel Barban Rocha#
 #Versao 2.0 - Dezembro/2018 (Melhorias: Pegando todos os dados do usuario e deixando o script utilizavel em qualquer servidor e permitindo seu uso por usuarios que nao entendam shell script)  - Gabriel Barban Rocha#
 #Versao 2.1 - Dezembro/2018 (Melhorias: verificacao do arquivo /var/log/wtmp, mais informacoes para o usuario, fim mais enxuto) - Gabriel Barban Rocha#
+#Versao 2.2 - Abril/2019 (Melhorias: mais informações sobre os discos montados, adição de informações sobre a versao, distribuição, etc)
 
-echo "Report Linux 2.1"
+echo "Report Linux 2.2"
 echo " "
 echo " "
 echo " "
@@ -57,8 +58,13 @@ echo " " >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
 
+echo "- Versao SO" >> report.txt
+cat /etc/*-release >> report.txt
+echo " " >> report.txt
+echo " " >> report.txt
+
 echo "- Armazenamento dos discos" >> report.txt
-df -h >> report.txt
+df -h -a >> report.txt
 echo " " >> report.txt
 echo " " >> report.txt
 
